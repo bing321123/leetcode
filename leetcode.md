@@ -24,3 +24,51 @@ var plusOne = function(digits) {
     return digits
 };
 ```
+
+### [35. 搜索插入位置](https://leetcode.cn/problems/search-insert-position/description//)
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {string[]}
+ */
+var summaryRanges = function(nums) {
+    let start = 0
+    let end = 0
+    let arr = []
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i +1] - nums[i] !== 1) {
+            arr.push([nums[start], nums[end]])
+            start = i + 1
+            end = i + 1
+        } else {
+            end = i + 1
+        }
+    }
+    return arr.map(item => item[0] === item[1] ? `${item[0]}` : `${item[0]}->${item[1]}`)
+};
+```
+
+
+### [228. 汇总区间](https://leetcode.cn/problems/summary-ranges/description/)
+```js
+/**
+ * @param {number[]} nums
+ * @return {string[]}
+ */
+var summaryRanges = function(nums) {
+    let start = 0
+    let end = 0
+    let arr = []
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i +1] - nums[i] !== 1) {
+            arr.push([nums[start], nums[end]])
+            start = i + 1
+            end = i + 1
+        } else {
+            end = i + 1
+        }
+    }
+    return arr.map(item => item[0] === item[1] ? `${item[0]}` : `${item[0]}->${item[1]}`)
+};
+```
