@@ -72,3 +72,40 @@ var summaryRanges = function(nums) {
     return arr.map(item => item[0] === item[1] ? `${item[0]}` : `${item[0]}->${item[1]}`)
 };
 ```
+
+### [268. 丢失的数字](https://leetcode.cn/problems/missing-number/)
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var missingNumber = function (nums) {
+    // 排序
+    nums.sort((a, b) => a - b)
+    // 数组从小到大没有漏一个数
+    if (nums[nums.length - 1] === nums.length - 1) return nums.length
+    // 数组中间漏一个数，|| 1 是特殊情况，数组为 [1]
+    return (nums.find((item, index) => item - nums[index - 1] === 2) || 1) - 1
+};
+```
+
+### [349. 两个数组的交集](https://leetcode.cn/problems/intersection-of-two-arrays/description/)
+
+```js
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+var intersection = function(nums1, nums2) {
+    return nums1.reduce((prev, curr) => {
+        // 结果数组里已经有的过滤掉
+        // nums2 里有重复的进行 push
+        if (!prev.includes(curr) && nums2.includes(curr)) {
+            prev.push(curr)
+        }
+        return prev
+    }, [])
+};
+```
