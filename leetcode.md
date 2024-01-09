@@ -109,3 +109,21 @@ var intersection = function(nums1, nums2) {
     }, [])
 };
 ```
+
+### [496. 下一个更大元素 I](https://leetcode.cn/problems/next-greater-element-i/)
+
+```js
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+var nextGreaterElement = function(nums1, nums2) {
+    return nums1.reduce((prev, curr) => {
+        const currIndex = nums2.findIndex(item => item === curr)
+        const next = nums2.slice(currIndex + 1).find(item => item > curr)
+        prev.push(next ? next : -1)
+        return prev
+    }, [])
+};
+```
