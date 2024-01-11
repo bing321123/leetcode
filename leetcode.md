@@ -127,3 +127,32 @@ var nextGreaterElement = function(nums1, nums2) {
     }, [])
 };
 ```
+
+### [350. 两个数组的交集 II](https://leetcode.cn/problems/intersection-of-two-arrays-ii/description/)
+
+```js
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+var intersect = function(nums1, nums2) {
+    nums1.sort((a, b) => a - b)
+    nums2.sort((a, b) => a - b)
+    const res = []
+    let n1 = 0
+    let n2 = 0
+    while (n1 <= nums1.length - 1 && n2 <= nums2.length - 1) {
+        if (nums1[n1] === nums2[n2]) {
+            res.push(nums1[n1])
+            n1++
+            n2++
+        } else if (nums1[n1] < nums2[n2]) {
+            n1++
+        } else {
+            n2++
+        }
+    }
+    return res
+};
+```
