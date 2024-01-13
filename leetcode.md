@@ -180,3 +180,32 @@ var containsNearbyDuplicate = function (nums, k) {
     return false
 };
 ```
+
+### [500. 键盘行](https://leetcode.cn/problems/keyboard-row/)
+
+```js
+/**
+ * @param {string[]} words
+ * @return {string[]}
+ */
+var findWords = function(words) {
+    const firstSet = new Set('qwertyuiop'.split(''))
+    const secondSet = new Set('asdfghjkl'.split(''))
+    const thirdSet = new Set('zxcvbnm'.split(''))
+    const sets = [firstSet, secondSet, thirdSet]
+
+    const res = []
+
+    words.forEach(item => {
+        const cloneArr = item.toLowerCase().split('')
+        const targetSet = sets.find(set => set.has(cloneArr[0]))
+        const hasNotInTargetSet = cloneArr.find(str => !targetSet.has(str))
+        
+        if (!hasNotInTargetSet) {
+            res.push(item)
+        }
+    })
+
+    return res
+};
+```
