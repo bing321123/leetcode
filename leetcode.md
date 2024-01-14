@@ -209,3 +209,23 @@ var findWords = function(words) {
     return res
 };
 ```
+
+### [506. 相对名次](https://leetcode.cn/problems/relative-ranks/description/)
+
+```js
+/**
+ * @param {number[]} score
+ * @return {string[]}
+ */
+const SSP = ["Gold Medal","Silver Medal","Bronze Medal"]
+var findRelativeRanks = function(score) {
+    const map = new Map(), ans = new Array(score.length);
+    for(let i=0;i<score.length;i++)
+        map.set(score[i], i)
+    score = score.sort((a,b)=>b-a)
+    for(let i=0;i<score.length;i++)
+        ans[map.get(score[i])] = i <= 2 ? SSP[i] : (i + 1) + ""
+    return ans
+};
+
+```
