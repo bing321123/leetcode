@@ -229,3 +229,16 @@ var findRelativeRanks = function(score) {
 };
 
 ```
+
+### [575. 分糖果](https://leetcode.cn/problems/distribute-candies/description/)
+
+```js
+/**
+ * @param {number[]} candyType
+ * @return {number}
+ */
+var distributeCandies = function(candyType) {
+    const set = new Set(candyType)
+    return set.size > candyType.length / 2 ? candyType.length / 2 : set.size
+};
+```
