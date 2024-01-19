@@ -242,3 +242,24 @@ var distributeCandies = function(candyType) {
     return set.size > candyType.length / 2 ? candyType.length / 2 : set.size
 };
 ```
+
+### [724. 寻找数组的中心下标](https://leetcode.cn/problems/find-pivot-index/description/)
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var pivotIndex = function(nums) {
+    if (nums.length === 1) return 0
+
+    let index = 0
+    while (index < nums.length) {
+        const leftSum = nums.slice(0, index).length ? nums.slice(0, index).reduce((prev, curr) => prev + curr) : 0
+        const rightSum = nums.slice(index + 1).length ? nums.slice(index + 1).reduce((prev, curr) => prev + curr) : 0
+        if (leftSum === rightSum) return index
+        index++
+    }
+    return -1
+};
+```
