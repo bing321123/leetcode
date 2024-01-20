@@ -263,3 +263,17 @@ var pivotIndex = function(nums) {
     return -1
 };
 ```
+
+### [744. 寻找比目标字母大的最小字母](https://leetcode.cn/problems/find-smallest-letter-greater-than-target/description/)
+
+```js
+/**
+ * @param {character[]} letters
+ * @param {character} target
+ * @return {character}
+ */
+var nextGreatestLetter = function(letters, target) {
+    const first = letters.find(item => item > target)
+    return first ? first : letters[0]
+};
+```
