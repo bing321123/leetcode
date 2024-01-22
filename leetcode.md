@@ -277,3 +277,20 @@ var nextGreatestLetter = function(letters, target) {
     return first ? first : letters[0]
 };
 ```
+
+### [747. 至少是其他数字两倍的最大数](https://leetcode.cn/problems/largest-number-at-least-twice-of-others/description/)
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var dominantIndex = function(nums) {
+    if (nums.length <= 1) return -1
+    const tempNums = [...nums].sort((a, b) => b - a)
+    if (tempNums[0] >= tempNums[1] * 2) {
+        return nums.findIndex(item => item === tempNums[0])
+    }
+    return -1
+};
+```
